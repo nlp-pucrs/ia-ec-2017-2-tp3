@@ -6,17 +6,18 @@
 Desenvolvevor um experimento de aprendizagem de máquina utilizando redes neurais em dados de imagens. 
 
 ### Bases de Dados sugeridas:
-- fetch_lfw_people
-- load_digits
-- fetch_olivetti_faces
-- MNIST
-- fetch_20newsgroups_vectorized (PLN)
+- [fetch_lfw_people()](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_lfw_people.html)
+- [fetch_olivetti_faces()](http://scikit-learn.org/stable/datasets/olivetti_faces.html)
+- [fetch_mldata('MNIST original')](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_mldata.html)
+- [fetch_20newsgroups()](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
+- [Audio Tracks](https://github.com/nlp-pucrs/ia-ec-2017-2-tp3/blob/master/data/tracks.zip)
+- [load_digits()](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html)
 
 ### Repositório: 
 Enviar email da conta do GitHub para henrique.santos.003@acad.pucrs.br para receber acesso.
 
 ### Tecnologias: 
-Scikit-Learn, GitHub, Jupyter Notebook, Pandas e Python
+Multi-layer Perceptron, Scikit-Learn, GitHub, Jupyter Notebook, Pandas e Python
 
 ### Resultado: 
 - Apresentação do Notebook em Aula no dia 09/11/2017
@@ -54,7 +55,4 @@ A versão final do Notebook deve ser enviada ao GitHub até o dia 09/11/2017 às
 - [ ] Explicação da Avaliação
 
 ### Referências:
-- http://scikit-learn.org/
-- https://www.python.org/downloads/
-- https://ipython.org/notebook.html
-- http://pandas.pydata.org/
+- http://scikit-learn.org/stable/modules/neural_networks_supervised.html
