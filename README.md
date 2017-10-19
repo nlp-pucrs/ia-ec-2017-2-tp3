@@ -40,7 +40,7 @@ A versão final do Notebook deve ser enviada ao GitHub até o dia 09/11/2017 às
 - [ ] Sklearn
 - [ ] Pandas
 - [ ] NumPy
-- [ ] Pré-Processamento
+- [ ] Pré-Processamento (audio, texto)
 - [ ] Classificação/Regressão
 - [ ] Validação Cruzada
 - [ ] Avaliação
@@ -49,7 +49,7 @@ A versão final do Notebook deve ser enviada ao GitHub até o dia 09/11/2017 às
 - [ ] Prazo de Entrega
 - [ ] Organização do Jupyter Notebook
 - [ ] Explicação da Base de dados
-- [ ] Explicação do Pré-processamento
+- [ ] Explicação do Pré-processamento (audio, texto)
 - [ ] Explicação da Topologia da Rede
 - [ ] Explicação da Validação Cruzada
 - [ ] Explicação da Avaliação
