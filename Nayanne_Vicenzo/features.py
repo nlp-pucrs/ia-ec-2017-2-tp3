@@ -8,6 +8,7 @@ import csv
 from skimage import color
 from scipy.stats import describe
 from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import cross_val_score
 
 def descrever(nomeDoCSV, imClass, data):
 	csv_file = open(nomeDoCSV, 'wb')
@@ -30,6 +31,13 @@ def buscarArquivos(path, imclass):
 	for file in os.listdir(path):
 		imclass.append(imgio.imread(os.path.join(path, file)))
 
+def avaliar(avaliador, hDataTrain, hTargetTrain, hDataEval):
+	print("Resultado com o solver " + avaliador)
+	clf = MLPClassifier(solver=avaliador, alpha=1e-5, random_state=1)
+	clf.fit(hDataTrain, hTargetTrain)
+	print(clf.predict(hDataEval))
+	scores = cross_val_score(clf, hDataTrain, hTargetTrain, cv = 3, verbose = 3, scoring='accuracy')
+	print(np.mean(scores))
 		
 class0 = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/TRAIN_TEST_Data/Class0"
 class1 = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/TRAIN_TEST_Data/Class1"
@@ -37,15 +45,15 @@ blind = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/BL
 
 imClass0 = []
 imClass1 = []
-imBlind = []
+#imBlind = []
 
 data = []
 target = []
-pData = []
+#pData = []
 
 buscarArquivos(class0, imClass0)
 buscarArquivos(class1, imClass1)
-buscarArquivos(blind, imBlind)
+#buscarArquivos(blind, imBlind)
 
 print("Descrevendo a Classe 0...")
 descrever("classe0.csv", imClass0, data)
@@ -55,19 +63,43 @@ print("Descrevendo a Classe 1...")
 descrever("classe1.csv", imClass1, data)
 for i in range(0, 58):
 	target.append(1)
-print("Descrevendo a Blind...")
-descrever("blind.csv", imBlind, pData)
+#print("Descrevendo a Blind...")
+#descrever("blind.csv", imBlind, pData)
 
 data = np.asarray(data)
 target = np.asarray(target)
-pData = np.asarray(pData)
+#pData = np.asarray(pData)
+
+hDataTrain = []
+hTargetTrain = []
+
+hDataEval = []
+hTargetEval = []
 
 print(data.shape)
 print(target.shape)
-print(pData.shape)
+#print(pData.shape)
 
-clf = MLPClassifier(solver='lbfgs', alpha=1e-5, random_state=1)
+for i in range(0, 29):
+	hDataTrain.append(data[i])
+	hTargetTrain.append(target[i])
+	hDataEval.append(data[i + 29])
+	hTargetEval.append(target[i + 29])
+	
+for i in range(58, 87):
+	hDataTrain.append(data[i])
+	hTargetTrain.append(target[i])
+	hDataEval.append(data[i + 29])
+	hTargetEval.append(target[i + 29])
 
-print(clf.fit(data, target))
+hDataTrain = np.asarray(hDataTrain)
+hTargetTrain = np.asarray(hTargetTrain)
+hDataEval = np.asarray(hDataEval)
+hTargetEval = np.asarray(hTargetEval)
 
-print(clf.predict(pData))
+#http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier
+
+avaliar("lbfgs", hDataTrain, hTargetTrain, hDataEval)
+avaliar("sgd", hDataTrain, hTargetTrain, hDataEval)
+avaliar("adam", hDataTrain, hTargetTrain, hDataEval)
+
