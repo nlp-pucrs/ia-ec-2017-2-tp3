@@ -41,24 +41,20 @@ def avaliar(avaliador, hDataTrain, hTargetTrain, hDataEval, hTargetEval):
 	predito = clf.predict(hDataEval)
 	print("Resultado: " + str(np.mean(predito == hTargetEval)))
 	
-	scores = cross_val_score(clf, hDataEval, hTargetEval, cv = 3, verbose = 3, scoring='accuracy')
+	scores = cross_val_score(clf, hDataEval, hTargetEval, cv = 5, verbose = 0, scoring='accuracy')
 	print("Validacao cruzada: " + str(np.mean(scores)))
 		
 class0 = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\Class0"
 class1 = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\Class1"
-blind = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\BLIND_Data"
 
 imClass0 = []
 imClass1 = []
-#imBlind = []
 
 data = []
 target = []
-#pData = []
 
 buscarArquivos(class0, imClass0)
 buscarArquivos(class1, imClass1)
-#buscarArquivos(blind, imBlind)
 
 print("Descrevendo a Classe 0...")
 descrever("classe0.csv", imClass0, data)
@@ -68,12 +64,9 @@ print("Descrevendo a Classe 1...")
 descrever("classe1.csv", imClass1, data)
 for i in range(0, 58):
 	target.append(1)
-#print("Descrevendo a Blind...")
-#descrever("blind.csv", imBlind, pData)
 
 data = np.asarray(data)
 target = np.asarray(target)
-#pData = np.asarray(pData)
 
 hDataTrain = []
 hTargetTrain = []
@@ -83,7 +76,6 @@ hTargetEval = []
 
 print(data.shape)
 print(target.shape)
-#print(pData.shape)
 
 for i in range(0, 29):
 	hDataTrain.append(data[i])
