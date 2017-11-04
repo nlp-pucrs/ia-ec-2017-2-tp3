@@ -31,17 +31,22 @@ def buscarArquivos(path, imclass):
 	for file in os.listdir(path):
 		imclass.append(imgio.imread(os.path.join(path, file)))
 
-def avaliar(avaliador, hDataTrain, hTargetTrain, hDataEval):
+def avaliar(avaliador, hDataTrain, hTargetTrain, hDataEval, hTargetEval):
+	print("\n###########################################################\n")
 	print("Resultado com o solver " + avaliador)
 	clf = MLPClassifier(solver=avaliador, alpha=1e-5, random_state=1)
+	
 	clf.fit(hDataTrain, hTargetTrain)
-	print(clf.predict(hDataEval))
-	scores = cross_val_score(clf, hDataTrain, hTargetTrain, cv = 3, verbose = 3, scoring='accuracy')
-	print(np.mean(scores))
+	
+	predito = clf.predict(hDataEval)
+	print("Resultado: " + str(np.mean(predito == hTargetEval)))
+	
+	scores = cross_val_score(clf, hDataEval, hTargetEval, cv = 3, verbose = 3, scoring='accuracy')
+	print("Validacao cruzada: " + str(np.mean(scores)))
 		
-class0 = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/TRAIN_TEST_Data/Class0"
-class1 = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/TRAIN_TEST_Data/Class1"
-blind = "/home/grv/Projetos/Osteoporose/TCB_Challenge_Data/TCB_Challenge_Data/BLIND_Data"
+class0 = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\Class0"
+class1 = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\Class1"
+blind = "C:\Users\Vicenzo\Desktop\ia-ec-2017-2-tp3-master\Nayanne_Vicenzo\BLIND_Data"
 
 imClass0 = []
 imClass1 = []
@@ -99,7 +104,7 @@ hTargetEval = np.asarray(hTargetEval)
 
 #http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier
 
-avaliar("lbfgs", hDataTrain, hTargetTrain, hDataEval)
-avaliar("sgd", hDataTrain, hTargetTrain, hDataEval)
-avaliar("adam", hDataTrain, hTargetTrain, hDataEval)
+avaliar("lbfgs", hDataTrain, hTargetTrain, hDataEval, hTargetEval)
+avaliar("sgd", hDataTrain, hTargetTrain, hDataEval, hTargetEval)
+avaliar("adam", hDataTrain, hTargetTrain, hDataEval, hTargetEval)
 
