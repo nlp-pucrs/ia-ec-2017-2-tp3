@@ -20,11 +20,11 @@ Enviar email da conta do GitHub para henrique.santos.003@acad.pucrs.br para rece
 Multi-layer Perceptron, Scikit-Learn, GitHub, Jupyter Notebook, Pandas e Python
 
 ### Resultado: 
-- Apresentação do Notebook em Aula no dia 09/11/2017
+- Apresentação do Notebook em Aula no dia 14/11/2017
 - 15 Minutos de Apresentação por Grupo
 
 ### Prazo: 
-A versão final do Notebook deve ser enviada ao GitHub até o dia 09/11/2017 às 19:00
+A versão final do Notebook deve ser enviada ao GitHub até o dia 14/11/2017 às 19:00
 
 ### Grupo:
  - 2 pessoas
