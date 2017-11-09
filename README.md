@@ -31,15 +31,14 @@ A versão final do Notebook deve ser enviada ao GitHub até o dia 14/11/2017 às
  - cada dupla envia um arquivo ipynb com seus primeiros nomes
  - Ex.: fulano1_funalo2.ipynb
 
-### Avaliação (17):
+### Avaliação (16):
 
-#### Tecnologias (10):
+#### Tecnologias (9):
 - [ ] GitHub
 - [ ] Python
 - [ ] Jupyter Notebook
 - [ ] Sklearn
 - [ ] Pandas
-- [ ] NumPy
 - [ ] Pré-Processamento (audio, texto)
 - [ ] Classificação/Regressão
 - [ ] Validação Cruzada
