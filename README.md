@@ -17,7 +17,7 @@ Desenvolvevor um experimento de aprendizagem de máquina utilizando redes neurai
 Enviar email da conta do GitHub para henrique.santos.003@acad.pucrs.br para receber acesso.
 
 ### Tecnologias: 
-Multi-layer Perceptron, Scikit-Learn, GitHub, Jupyter Notebook, Pandas e Python
+Multi-layer Perceptron (MLP), Principal Component Analysis (PCA), Scikit-Learn, GitHub, Jupyter Notebook e Python
 
 ### Resultado: 
 - Apresentação do Notebook em Aula no dia 14/11/2017
@@ -31,14 +31,13 @@ A versão final do Notebook deve ser enviada ao GitHub até o dia 14/11/2017 às
  - cada dupla envia um arquivo ipynb com seus primeiros nomes
  - Ex.: fulano1_funalo2.ipynb
 
-### Avaliação (16):
+### Avaliação (15):
 
-#### Tecnologias (9):
+#### Tecnologias (8):
 - [ ] GitHub
 - [ ] Python
 - [ ] Jupyter Notebook
 - [ ] Sklearn
-- [ ] Pandas
 - [ ] Pré-Processamento (audio, texto)
 - [ ] Classificação/Regressão
 - [ ] Validação Cruzada
